@@ -1,0 +1,54 @@
+/* Bloc main-2 uniquement */
+main-2 {
+	display: block;
+	box-sizing: border-box;
+	max-width: 760px;
+	margin: 40px auto;
+	padding: 24px;
+	border: 1px solid #ddd6fe;
+	border-radius: 16px;
+	background: #faf8ff;
+	color: #292334;
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+	box-shadow: 0 8px 24px rgba(41, 35, 52, 0.06);
+}
+
+main-2 h1 {
+	margin: 0 0 24px;
+	font-size: clamp(24px, 4vw, 32px);
+	line-height: 1.2;
+}
+
+main-2 ol {
+	margin: 0;
+	padding-left: 32px;
+}
+
+main-2 li {
+	margin-bottom: 12px;
+	padding: 12px;
+	border: 1px solid #ede9f5;
+	border-radius: 8px;
+	background: #fff;
+}
+
+main-2 li::marker {
+	color: #6d28d9;
+	font-weight: bold;
+}
+
+main-2 li:last-child {
+	margin-bottom: 0;
+	border-color: #c4b5fd;
+	background: #ede9fe;
+	font-weight: bold;
+}
+
+main-2 li img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin-top: 12px;
+	border-radius: 8px;
+}
