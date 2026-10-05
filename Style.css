@@ -1,3 +1,248 @@
+/* ==========================================================
+   🧦 CHAUSSETTES PERDUES — styles du header uniquement
+   ========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Comic+Neue:wght@700&display=swap');
+
+/* ---------- Police et couleurs du header ---------- */
+.site-header {
+  font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+  color: #2b1055;
+  /* Fond à pois, comme une chaussette de grand-mère */
+  background-color: #fff3b0;
+  background-image:
+    radial-gradient(#ff8fab 18%, transparent 19%),
+    radial-gradient(#7bdff2 18%, transparent 19%);
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+}
+
+/* ---------- Bandeau "Avis de recherche" façon ruban de police ---------- */
+.site-header > p:first-child {
+  flex-basis: 100%;
+  margin: 0;
+  padding: 10px 16px;
+  text-align: center;
+  font-size: 1rem;
+  color: #000;
+  /* Fond jaune lisible au centre, rayures jaune/noir sur les bords */
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  background:
+    linear-gradient(#ffde00, #ffde00) padding-box,
+    repeating-linear-gradient(-45deg, #ffde00 0 20px, #111 20px 40px) border-box;
+  animation: header-panique 0.4s infinite;
+}
+
+.site-header > p:first-child strong {
+  background: #fff;
+  padding: 2px 8px;
+  border: 3px solid #000;
+  border-radius: 6px;
+}
+
+@keyframes header-panique {
+  0%, 100% { transform: translateX(0); }
+  25%      { transform: translateX(-3px) rotate(-0.3deg); }
+  75%      { transform: translateX(3px) rotate(0.3deg); }
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 32px;
+  margin: 24px 16px;
+  padding: 20px 28px 36px;
+  background: #fff;
+  border: 5px solid #2b1055;
+  /* Bords tout tordus */
+  border-radius: 30px 80px 25px 90px / 70px 25px 85px 30px;
+  box-shadow: 10px 10px 0 #2b1055, 20px 20px 0 #ff5a8a;
+  transform: rotate(-1deg);
+}
+
+/* ---------- Logo / titre ---------- */
+.site-header > a:first-of-type {
+  text-decoration: none;
+  color: inherit;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-family: 'Luckiest Guy', 'Comic Sans MS', cursive;
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  letter-spacing: 2px;
+  color: #ff5a8a;
+  text-shadow:
+    3px 3px 0 #2b1055,
+    6px 6px 0 #7bdff2,
+    9px 9px 0 #2b1055;
+  display: inline-block;
+  animation: header-gigote 2s ease-in-out infinite;
+}
+
+.site-header > a:first-of-type:hover h1 {
+  animation: header-toupie 0.8s linear infinite;
+}
+
+@keyframes header-gigote {
+  0%, 100% { transform: rotate(-3deg) scale(1); }
+  50%      { transform: rotate(3deg) scale(1.05); }
+}
+
+@keyframes header-toupie {
+  to { transform: rotate(360deg); }
+}
+
+/* Sous-titre */
+.site-header > p {
+  margin: 0;
+  padding: 6px 14px;
+  font-size: 0.95rem;
+  background: #7bdff2;
+  border: 3px solid #2b1055;
+  border-radius: 999px;
+  transform: rotate(4deg);
+}
+
+/* ---------- Navigation : des chaussettes sur une corde à linge ---------- */
+.site-header nav {
+  flex-basis: 100%;
+  order: 3;
+}
+
+.site-header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 18px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 26px 18px;
+  /* La corde à linge */
+  border-top: 4px solid #8b5a2b;
+  border-radius: 50% 50% 0 0 / 30px 30px 0 0;
+}
+
+.site-header nav li {
+  position: relative;
+  transform-origin: top center;
+  animation: header-balance 3s ease-in-out infinite;
+}
+
+/* La pince à linge */
+.site-header nav li::before {
+  content: "";
+  position: absolute;
+  top: -26px;
+  left: 50%;
+  width: 10px;
+  height: 22px;
+  margin-left: -5px;
+  background: #d9a066;
+  border: 2px solid #5c3a1a;
+  border-radius: 3px;
+}
+
+/* Chaque chaussette se balance à son rythme */
+.site-header nav li:nth-child(odd)  { animation-duration: 2.6s; }
+.site-header nav li:nth-child(even) { animation-direction: reverse; animation-duration: 3.3s; }
+
+@keyframes header-balance {
+  0%, 100% { transform: rotate(-6deg); }
+  50%      { transform: rotate(6deg); }
+}
+
+.site-header nav a {
+  display: block;
+  padding: 12px 18px 22px;
+  font-weight: 700;
+  color: #2b1055;
+  text-decoration: none;
+  border: 3px solid #2b1055;
+  /* Forme de chaussette (ou presque) */
+  border-radius: 10px 10px 40px 14px;
+  box-shadow: 4px 4px 0 #2b1055;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Toutes dépareillées, évidemment */
+.site-header nav li:nth-child(1) a { background: repeating-linear-gradient(0deg, #ff8fab 0 8px, #fff 8px 16px); }
+.site-header nav li:nth-child(2) a { background: #b8f2a6; }
+.site-header nav li:nth-child(3) a { background: radial-gradient(#fff 20%, transparent 22%) 0 0 / 14px 14px, #c3a6ff; }
+.site-header nav li:nth-child(4) a { background: repeating-linear-gradient(90deg, #ffd166 0 10px, #ef476f 10px 20px); }
+.site-header nav li:nth-child(5) a { background: #7bdff2; }
+
+.site-header nav a:hover {
+  transform: scale(1.15) rotate(-8deg);
+  box-shadow: 8px 8px 0 #ff5a8a;
+}
+
+.site-header nav a[aria-current="page"] {
+  text-decoration: underline wavy #ff5a8a 3px;
+  text-underline-offset: 6px;
+}
+
+/* ---------- Bouton "Signaler une disparition" ---------- */
+.site-header > a:last-child {
+  order: 2;
+  padding: 16px 26px;
+  font-family: 'Luckiest Guy', 'Comic Sans MS', cursive;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: #fff;
+  text-decoration: none;
+  background: #ff5a8a;
+  border: 4px solid #2b1055;
+  /* Une bulle toute molle */
+  border-radius: 60% 40% 55% 45% / 45% 60% 40% 55%;
+  box-shadow: 6px 6px 0 #2b1055;
+  animation: header-boing 1.2s ease-in-out infinite;
+  transition: background 0.2s;
+}
+
+.site-header > a:last-child:hover {
+  background: #ffde00;
+  color: #2b1055;
+  animation: header-tremblote 0.15s infinite;
+}
+
+.site-header > a:last-child:active {
+  transform: scale(0.9);
+}
+
+@keyframes header-boing {
+  0%, 100% { transform: scale(1) rotate(-2deg); }
+  50%      { transform: scale(1.08, 0.94) rotate(2deg); }
+}
+
+@keyframes header-tremblote {
+  0%, 100% { transform: rotate(-4deg) scale(1.1); }
+  50%      { transform: rotate(4deg) scale(1.1); }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+  .site-header {
+    justify-content: center;
+    text-align: center;
+    padding: 20px 16px 30px;
+  }
+  .site-header nav ul { gap: 30px 12px; }
+}
+
+/* ---------- Pour ceux que tout ce bazar donne le tournis ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .site-header, .site-header::before, .site-header::after,
+  .site-header *, .site-header *::before, .site-header *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 #body-main-1,
 .body-main-1 {
     width: 100%;
@@ -79,6 +324,215 @@ h1 {
 .top-list li:nth-child(9) { background: linear-gradient(90deg, #fcd5ce, #ffafcc); }
 .top-list li:nth-child(10) { background: linear-gradient(90deg, #d8f3dc, #52b788); }
 
+/* MAIN-2 : tout le chaos reste dans ce bloc. */
+main-2 {
+	--main2-ink: #160d2b;
+	display: block;
+	position: relative;
+	isolation: isolate;
+	box-sizing: border-box;
+	max-width: 1100px;
+	margin: 32px auto;
+	padding: clamp(18px, 4vw, 48px);
+	border: 4px solid var(--main2-ink);
+	border-radius: 28px;
+	background:
+		radial-gradient(circle, #ffffff35 2px, transparent 2px) 0 0 / 22px 22px,
+		linear-gradient(135deg, #6725dd, #df32b1 55%, #ff7546);
+	color: var(--main2-ink);
+	font-family: "Arial Black", Arial, sans-serif;
+	line-height: 1.5;
+	box-shadow: 8px 8px 0 var(--main2-ink);
+}
+
+main-2::before {
+	content: "67 / BRAINROT ZONE";
+	display: table;
+	margin: 0 auto 24px;
+	padding: 8px 18px;
+	border: 3px solid var(--main2-ink);
+	border-radius: 8px;
+	background: #dfff00;
+	font-size: 13px;
+	font-weight: 900;
+	letter-spacing: 2px;
+	box-shadow: 4px 4px 0 var(--main2-ink);
+	transform: rotate(-3deg);
+}
+
+main-2 h1 {
+	max-width: 850px;
+	margin: 0 auto 36px;
+	color: #fff;
+	font-size: clamp(32px, 6vw, 66px);
+	font-weight: 900;
+	line-height: 1.05;
+	letter-spacing: -2px;
+	text-align: center;
+	text-transform: uppercase;
+	text-shadow: 3px 3px 0 var(--main2-ink), 6px 6px 0 #00f5ff;
+}
+
+main-2 ol {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 28px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	counter-reset: main2-rank 11;
+}
+
+main-2 li {
+	--main2-card: #fff18b;
+	--main2-tilt: -1deg;
+	position: relative;
+	min-width: 0;
+	padding: 60px 22px 22px;
+	border: 3px solid var(--main2-ink);
+	border-radius: 18px;
+	background: var(--main2-card);
+	font-size: 17px;
+	font-weight: 700;
+	box-shadow: 6px 6px 0 var(--main2-ink);
+	counter-increment: main2-rank -1;
+	transform: rotate(var(--main2-tilt));
+	transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+main-2 li:nth-child(even) { --main2-tilt: 1deg; }
+main-2 li:nth-child(4n + 2) { --main2-card: #93f5ff; }
+main-2 li:nth-child(4n + 3) { --main2-card: #ffc4ed; }
+main-2 li:nth-child(4n + 4) { --main2-card: #c4ff8a; }
+
+main-2 li::before {
+	content: "#" counter(main2-rank);
+	position: absolute;
+	top: 12px;
+	left: 18px;
+	padding: 2px 12px;
+	border: 2px solid var(--main2-ink);
+	border-radius: 7px;
+	background: #fff;
+	font-size: 23px;
+	font-weight: 900;
+	box-shadow: 3px 3px 0 var(--main2-ink);
+}
+
+main-2 li::after {
+	content: "AURA −67";
+	position: absolute;
+	top: 18px;
+	right: 14px;
+	padding: 3px 9px;
+	border-radius: 5px;
+	background: var(--main2-ink);
+	color: #fff;
+	font-size: 11px;
+	letter-spacing: 1px;
+	transform: rotate(4deg);
+}
+
+main-2 li a {
+	display: block;
+	width: fit-content;
+	max-width: 100%;
+	margin: 20px auto 0;
+	border: 3px solid var(--main2-ink);
+	border-radius: 12px;
+	background: var(--main2-ink);
+	box-shadow: 4px 4px 0 #fff;
+	overflow: hidden;
+}
+
+main-2 li a:focus-visible {
+	outline: 4px solid #5b21b6;
+	outline-offset: 6px;
+}
+
+main-2 li img {
+	display: block;
+	width: 220px;
+	max-width: 100%;
+	height: 180px;
+	object-fit: contain;
+}
+
+/* Le top 1 a droit au traitement boss final. */
+main-2 li:last-child {
+	grid-column: 1 / -1;
+	padding-top: 68px;
+	border-width: 4px;
+	background: linear-gradient(115deg, #dfff00, #67ffcd, #00e5ff);
+	font-size: 21px;
+	text-align: center;
+	transform: none;
+	box-shadow: 7px 7px 0 var(--main2-ink), 0 0 28px #dfff0070;
+}
+
+main-2 li:last-child::after {
+	content: "💀 AURA : GAME OVER";
+}
+
+main-2 li:last-child a {
+	transform: rotate(-2deg);
+}
+
+main-2::after {
+	content: "FIN DU CLASSEMENT / VA TOUCHER DE L’HERBE";
+	display: block;
+	margin-top: 36px;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 900;
+	letter-spacing: 2px;
+	text-align: center;
+}
+
+@media (hover: hover) {
+	main-2 li:hover {
+		z-index: 1;
+		transform: translateY(-6px) rotate(0deg);
+		box-shadow: 9px 12px 0 var(--main2-ink);
+	}
+
+	main-2 li:hover::before {
+		animation: main2-wiggle 600ms ease-in-out;
+	}
+}
+
+@keyframes main2-wiggle {
+	0%, 100% { transform: rotate(0deg); }
+	25%, 75% { transform: rotate(-12deg) scale(1.1); }
+	50% { transform: rotate(12deg) scale(1.1); }
+}
+
+@media (max-width: 640px) {
+	main-2 {
+		margin: 16px auto;
+		border-radius: 18px;
+		box-shadow: 4px 4px 0 var(--main2-ink);
+	}
+
+	main-2 ol { grid-template-columns: minmax(0, 1fr); }
+	main-2 h1 { letter-spacing: -1px; }
+	main-2 li { font-size: 16px; }
+	main-2 li:last-child {
+		padding-top: 100px;
+		font-size: 18px;
+	}
+	main-2 li:last-child::after {
+		top: 64px;
+		right: auto;
+		left: 18px;
+		transform: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	main-2 li { transition: none; }
+	main-2 li:hover::before { animation: none; }
+}
 /* 
     * Using CSS variables for easy theming and maintenance.
     * Mobile-first responsive design.
