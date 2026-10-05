@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Comic+Neue:wght@700&display=swap');
 
 /* ---------- Police et couleurs du header ---------- */
-.site-header {
+header {
   font-family: 'Comic Neue', 'Comic Sans MS', cursive;
   color: #2b1055;
   /* Fond à pois, comme une chaussette de grand-mère */
