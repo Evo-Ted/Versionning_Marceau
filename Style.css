@@ -191,7 +191,16 @@ main-2::after {
 	main-2 ol { grid-template-columns: minmax(0, 1fr); }
 	main-2 h1 { letter-spacing: -1px; }
 	main-2 li { font-size: 16px; }
-	main-2 li:last-child { font-size: 18px; }
+	main-2 li:last-child {
+		padding-top: 100px;
+		font-size: 18px;
+	}
+	main-2 li:last-child::after {
+		top: 64px;
+		right: auto;
+		left: 18px;
+		transform: none;
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
