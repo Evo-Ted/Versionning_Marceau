@@ -1,3 +1,16 @@
+#body-main-1,
+.body-main-1 {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff00cc, #3333ff, #00f5d4, #ffdd00);
+    background-size: 400% 400%;
+    animation: rainbow 8s ease infinite;
+    font-family: Arial, sans-serif;
+}
+
 @keyframes rainbow {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
