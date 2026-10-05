@@ -1,3 +1,3 @@
 # Yo les petits potes
 
-Hey
+je suis votre leader, je vous dirige !!
