@@ -4,6 +4,57 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Comic+Neue:wght@700&display=swap');
 
+/* ---------- Fond commun : espace noir et débris de brainrot ---------- */
+body {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  margin: 0;
+  background: #050508;
+  overflow-x: clip;
+}
+
+body::before,
+body::after {
+  position: fixed;
+  inset: -10%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body::before {
+  content: "";
+  background:
+    radial-gradient(ellipse at 15% 25%, #ff00cc28, transparent 35%),
+    radial-gradient(ellipse at 85% 70%, #00f5d425, transparent 35%),
+    radial-gradient(circle, #ff55cc 1px, transparent 2px) 0 0 / 95px 95px,
+    radial-gradient(circle, #66ffee 1px, transparent 2px) 40px 25px / 145px 145px;
+  animation: page-space-drift 24s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: "67      🛸      ✦      67      🌀\A ✧      💀      67      ✧      🪐\A 67      🌀      ✦      67      🛸\A 🪐      ✧      67      💀      ✧";
+  white-space: pre;
+  overflow: hidden;
+  color: #bcff39;
+  font-family: "Arial Black", Arial, sans-serif;
+  font-size: clamp(28px, 4vw, 54px);
+  line-height: 30vh;
+  text-align: center;
+  opacity: 0.2;
+  text-shadow: 0 0 20px #baff3950;
+  animation: page-space-drift 35s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes page-space-drift {
+  from { transform: translate(-1%, -2%) rotate(-4deg); }
+  to { transform: translate(2%, 3%) rotate(4deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before, body::after { animation: none; }
+}
+
 /* ---------- Police et couleurs du header ---------- */
 .site-header {
   font-family: 'Comic Neue', 'Comic Sans MS', cursive;
@@ -263,27 +314,32 @@
 
 main-1 {
     display: block;
-    width: 80%;
+    box-sizing: border-box;
+    width: calc(100% - 40px);
     max-width: 700px;
+    margin: 48px auto;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
     background: rgba(0, 0, 0, 0.7);
     border: 5px solid #fff;
     box-shadow: 0 0 30px #ff00cc, 0 0 60px #00f5d4;
-    padding: 30px 25px;
+    padding: 30px clamp(16px, 4vw, 25px);
     border-radius: 20px;
     transform: rotate(-1deg);
 }
 
-h1 {
+main-1 h1 {
     text-align: center;
     color: #fff;
-    font-size: 2.5rem;
+    font-size: clamp(26px, 5vw, 40px);
     text-transform: uppercase;
     letter-spacing: 4px;
     text-shadow: 3px 3px 0 #ff00cc, 6px 6px 0 #00f5d4;
     margin-bottom: 20px;
 }
 
-.top-list {
+main-1 .top-list {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -292,7 +348,7 @@ h1 {
     gap: 10px;
 }
 
-.top-list li {
+main-1 .top-list li {
     background: linear-gradient(90deg, #ffdd00, #ff7b00, #ff006e);
     color: #111;
     font-weight: 900;
@@ -304,24 +360,24 @@ h1 {
     transform: rotate(var(--tilt, 0deg));
 }
 
-.top-list li:nth-child(odd) {
+main-1 .top-list li:nth-child(odd) {
     --tilt: -1deg;
 }
 
-.top-list li:nth-child(even) {
+main-1 .top-list li:nth-child(even) {
     --tilt: 1deg;
 }
 
-.top-list li:nth-child(1) { background: linear-gradient(90deg, #ffd700, #ffb700); }
-.top-list li:nth-child(2) { background: linear-gradient(90deg, #ff9f1c, #ff6b35); }
-.top-list li:nth-child(3) { background: linear-gradient(90deg, #ff6b6b, #ef476f); }
-.top-list li:nth-child(4) { background: linear-gradient(90deg, #ff8fab, #f72585); }
-.top-list li:nth-child(5) { background: linear-gradient(90deg, #c77dff, #9d4edd); }
-.top-list li:nth-child(6) { background: linear-gradient(90deg, #90e0ef, #00b4d8); }
-.top-list li:nth-child(7) { background: linear-gradient(90deg, #7ae582, #38b000); }
-.top-list li:nth-child(8) { background: linear-gradient(90deg, #fef08a, #facc15); }
-.top-list li:nth-child(9) { background: linear-gradient(90deg, #fcd5ce, #ffafcc); }
-.top-list li:nth-child(10) { background: linear-gradient(90deg, #d8f3dc, #52b788); }
+main-1 .top-list li:nth-child(1) { background: linear-gradient(90deg, #ffd700, #ffb700); }
+main-1 .top-list li:nth-child(2) { background: linear-gradient(90deg, #ff9f1c, #ff6b35); }
+main-1 .top-list li:nth-child(3) { background: linear-gradient(90deg, #ff6b6b, #ef476f); }
+main-1 .top-list li:nth-child(4) { background: linear-gradient(90deg, #ff8fab, #f72585); }
+main-1 .top-list li:nth-child(5) { background: linear-gradient(90deg, #c77dff, #9d4edd); }
+main-1 .top-list li:nth-child(6) { background: linear-gradient(90deg, #90e0ef, #00b4d8); }
+main-1 .top-list li:nth-child(7) { background: linear-gradient(90deg, #7ae582, #38b000); }
+main-1 .top-list li:nth-child(8) { background: linear-gradient(90deg, #fef08a, #facc15); }
+main-1 .top-list li:nth-child(9) { background: linear-gradient(90deg, #fcd5ce, #ffafcc); }
+main-1 .top-list li:nth-child(10) { background: linear-gradient(90deg, #d8f3dc, #52b788); }
 
 /* MAIN-2 : tout le chaos reste dans ce bloc. */
 main-2 {
