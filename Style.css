@@ -242,6 +242,88 @@
     transition: none !important;
   }
 }
+
+#body-main-1,
+.body-main-1 {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff00cc, #3333ff, #00f5d4, #ffdd00);
+    background-size: 400% 400%;
+    animation: rainbow 8s ease infinite;
+    font-family: Arial, sans-serif;
+}
+
+@keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+main-1 {
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 5px solid #fff;
+    box-shadow: 0 0 30px #ff00cc, 0 0 60px #00f5d4;
+    padding: 30px 25px;
+    border-radius: 20px;
+    transform: rotate(-1deg);
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 3px 3px 0 #ff00cc, 6px 6px 0 #00f5d4;
+    margin-bottom: 20px;
+}
+
+.top-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.top-list li {
+    background: linear-gradient(90deg, #ffdd00, #ff7b00, #ff006e);
+    color: #111;
+    font-weight: 900;
+    font-size: 1.05rem;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 3px solid #fff;
+    box-shadow: 4px 4px 0 #000;
+    transform: rotate(var(--tilt, 0deg));
+}
+
+.top-list li:nth-child(odd) {
+    --tilt: -1deg;
+}
+
+.top-list li:nth-child(even) {
+    --tilt: 1deg;
+}
+
+.top-list li:nth-child(1) { background: linear-gradient(90deg, #ffd700, #ffb700); }
+.top-list li:nth-child(2) { background: linear-gradient(90deg, #ff9f1c, #ff6b35); }
+.top-list li:nth-child(3) { background: linear-gradient(90deg, #ff6b6b, #ef476f); }
+.top-list li:nth-child(4) { background: linear-gradient(90deg, #ff8fab, #f72585); }
+.top-list li:nth-child(5) { background: linear-gradient(90deg, #c77dff, #9d4edd); }
+.top-list li:nth-child(6) { background: linear-gradient(90deg, #90e0ef, #00b4d8); }
+.top-list li:nth-child(7) { background: linear-gradient(90deg, #7ae582, #38b000); }
+.top-list li:nth-child(8) { background: linear-gradient(90deg, #fef08a, #facc15); }
+.top-list li:nth-child(9) { background: linear-gradient(90deg, #fcd5ce, #ffafcc); }
+.top-list li:nth-child(10) { background: linear-gradient(90deg, #d8f3dc, #52b788); }
+
 /* MAIN-2 : tout le chaos reste dans ce bloc. */
 main-2 {
 	--main2-ink: #160d2b;
