@@ -1,12 +1,62 @@
 /* ==========================================================
-   🧦 CHAUSSETTES PERDUES — feuille de style complètement loufoque
+   🧦 CHAUSSETTES PERDUES — styles du header uniquement
    ========================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Comic+Neue:wght@700&display=swap');
 
-/* ---------- Page ---------- */
+/* ---------- Fond commun : espace noir et débris de brainrot ---------- */
 body {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
   margin: 0;
+  background: #050508;
+  overflow-x: clip;
+}
+
+body::before,
+body::after {
+  position: fixed;
+  inset: -10%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body::before {
+  content: "";
+  background:
+    radial-gradient(ellipse at 15% 25%, #ff00cc28, transparent 35%),
+    radial-gradient(ellipse at 85% 70%, #00f5d425, transparent 35%),
+    radial-gradient(circle, #ff55cc 1px, transparent 2px) 0 0 / 95px 95px,
+    radial-gradient(circle, #66ffee 1px, transparent 2px) 40px 25px / 145px 145px;
+  animation: page-space-drift 24s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: "67      🛸      ✦      67      🌀\A ✧      💀      67      ✧      🪐\A 67      🌀      ✦      67      🛸\A 🪐      ✧      67      💀      ✧";
+  white-space: pre;
+  overflow: hidden;
+  color: #bcff39;
+  font-family: "Arial Black", Arial, sans-serif;
+  font-size: clamp(28px, 4vw, 54px);
+  line-height: 30vh;
+  text-align: center;
+  opacity: 0.2;
+  text-shadow: 0 0 20px #baff3950;
+  animation: page-space-drift 35s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes page-space-drift {
+  from { transform: translate(-1%, -2%) rotate(-4deg); }
+  to { transform: translate(2%, 3%) rotate(4deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before, body::after { animation: none; }
+}
+
+/* ---------- Police et couleurs du header ---------- */
+.site-header {
   font-family: 'Comic Neue', 'Comic Sans MS', cursive;
   color: #2b1055;
   /* Fond à pois, comme une chaussette de grand-mère */
@@ -16,11 +66,11 @@ body {
     radial-gradient(#7bdff2 18%, transparent 19%);
   background-size: 60px 60px;
   background-position: 0 0, 30px 30px;
-  overflow-x: hidden;
 }
 
 /* ---------- Bandeau "Avis de recherche" façon ruban de police ---------- */
-body > p:first-child {
+.site-header > p:first-child {
+  flex-basis: 100%;
   margin: 0;
   padding: 10px 16px;
   text-align: center;
@@ -32,24 +82,24 @@ body > p:first-child {
   background:
     linear-gradient(#ffde00, #ffde00) padding-box,
     repeating-linear-gradient(-45deg, #ffde00 0 20px, #111 20px 40px) border-box;
-  animation: panique 0.4s infinite;
+  animation: header-panique 0.4s infinite;
 }
 
-body > p:first-child strong {
+.site-header > p:first-child strong {
   background: #fff;
   padding: 2px 8px;
   border: 3px solid #000;
   border-radius: 6px;
 }
 
-@keyframes panique {
+@keyframes header-panique {
   0%, 100% { transform: translateX(0); }
   25%      { transform: translateX(-3px) rotate(-0.3deg); }
   75%      { transform: translateX(3px) rotate(0.3deg); }
 }
 
 /* ---------- Header ---------- */
-header {
+.site-header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -57,7 +107,6 @@ header {
   gap: 16px 32px;
   margin: 24px 16px;
   padding: 20px 28px 36px;
-  background: #fff;
   border: 5px solid #2b1055;
   /* Bords tout tordus */
   border-radius: 30px 80px 25px 90px / 70px 25px 85px 30px;
@@ -66,12 +115,12 @@ header {
 }
 
 /* ---------- Logo / titre ---------- */
-header > a:first-child {
+.site-header > a:first-of-type {
   text-decoration: none;
   color: inherit;
 }
 
-header h1 {
+.site-header h1 {
   margin: 0;
   font-family: 'Luckiest Guy', 'Comic Sans MS', cursive;
   font-size: clamp(2rem, 6vw, 3.4rem);
@@ -82,24 +131,24 @@ header h1 {
     6px 6px 0 #7bdff2,
     9px 9px 0 #2b1055;
   display: inline-block;
-  animation: gigote 2s ease-in-out infinite;
+  animation: header-gigote 2s ease-in-out infinite;
 }
 
-header > a:first-child:hover h1 {
-  animation: toupie 0.8s linear infinite;
+.site-header > a:first-of-type:hover h1 {
+  animation: header-toupie 0.8s linear infinite;
 }
 
-@keyframes gigote {
+@keyframes header-gigote {
   0%, 100% { transform: rotate(-3deg) scale(1); }
   50%      { transform: rotate(3deg) scale(1.05); }
 }
 
-@keyframes toupie {
+@keyframes header-toupie {
   to { transform: rotate(360deg); }
 }
 
 /* Sous-titre */
-header > p {
+.site-header > p {
   margin: 0;
   padding: 6px 14px;
   font-size: 0.95rem;
@@ -110,12 +159,12 @@ header > p {
 }
 
 /* ---------- Navigation : des chaussettes sur une corde à linge ---------- */
-nav {
+.site-header nav {
   flex-basis: 100%;
   order: 3;
 }
 
-nav ul {
+.site-header nav ul {
   list-style: none;
   margin: 0;
   padding: 18px 0 0;
@@ -128,14 +177,14 @@ nav ul {
   border-radius: 50% 50% 0 0 / 30px 30px 0 0;
 }
 
-nav li {
+.site-header nav li {
   position: relative;
   transform-origin: top center;
-  animation: balance 3s ease-in-out infinite;
+  animation: header-balance 3s ease-in-out infinite;
 }
 
 /* La pince à linge */
-nav li::before {
+.site-header nav li::before {
   content: "";
   position: absolute;
   top: -26px;
@@ -149,15 +198,15 @@ nav li::before {
 }
 
 /* Chaque chaussette se balance à son rythme */
-nav li:nth-child(odd)  { animation-duration: 2.6s; }
-nav li:nth-child(even) { animation-direction: reverse; animation-duration: 3.3s; }
+.site-header nav li:nth-child(odd)  { animation-duration: 2.6s; }
+.site-header nav li:nth-child(even) { animation-direction: reverse; animation-duration: 3.3s; }
 
-@keyframes balance {
+@keyframes header-balance {
   0%, 100% { transform: rotate(-6deg); }
   50%      { transform: rotate(6deg); }
 }
 
-nav a {
+.site-header nav a {
   display: block;
   padding: 12px 18px 22px;
   font-weight: 700;
@@ -171,24 +220,24 @@ nav a {
 }
 
 /* Toutes dépareillées, évidemment */
-nav li:nth-child(1) a { background: repeating-linear-gradient(0deg, #ff8fab 0 8px, #fff 8px 16px); }
-nav li:nth-child(2) a { background: #b8f2a6; }
-nav li:nth-child(3) a { background: radial-gradient(#fff 20%, transparent 22%) 0 0 / 14px 14px, #c3a6ff; }
-nav li:nth-child(4) a { background: repeating-linear-gradient(90deg, #ffd166 0 10px, #ef476f 10px 20px); }
-nav li:nth-child(5) a { background: #7bdff2; }
+.site-header nav li:nth-child(1) a { background: repeating-linear-gradient(0deg, #ff8fab 0 8px, #fff 8px 16px); }
+.site-header nav li:nth-child(2) a { background: #b8f2a6; }
+.site-header nav li:nth-child(3) a { background: radial-gradient(#fff 20%, transparent 22%) 0 0 / 14px 14px, #c3a6ff; }
+.site-header nav li:nth-child(4) a { background: repeating-linear-gradient(90deg, #ffd166 0 10px, #ef476f 10px 20px); }
+.site-header nav li:nth-child(5) a { background: #7bdff2; }
 
-nav a:hover {
+.site-header nav a:hover {
   transform: scale(1.15) rotate(-8deg);
   box-shadow: 8px 8px 0 #ff5a8a;
 }
 
-nav a[aria-current="page"] {
+.site-header nav a[aria-current="page"] {
   text-decoration: underline wavy #ff5a8a 3px;
   text-underline-offset: 6px;
 }
 
 /* ---------- Bouton "Signaler une disparition" ---------- */
-header > a:last-child {
+.site-header > a:last-child {
   order: 2;
   padding: 16px 26px;
   font-family: 'Luckiest Guy', 'Comic Sans MS', cursive;
@@ -201,44 +250,498 @@ header > a:last-child {
   /* Une bulle toute molle */
   border-radius: 60% 40% 55% 45% / 45% 60% 40% 55%;
   box-shadow: 6px 6px 0 #2b1055;
-  animation: boing 1.2s ease-in-out infinite;
+  animation: header-boing 1.2s ease-in-out infinite;
   transition: background 0.2s;
 }
 
-header > a:last-child:hover {
+.site-header > a:last-child:hover {
   background: #ffde00;
   color: #2b1055;
-  animation: tremblote 0.15s infinite;
+  animation: header-tremblote 0.15s infinite;
 }
 
-header > a:last-child:active {
+.site-header > a:last-child:active {
   transform: scale(0.9);
 }
 
-@keyframes boing {
+@keyframes header-boing {
   0%, 100% { transform: scale(1) rotate(-2deg); }
   50%      { transform: scale(1.08, 0.94) rotate(2deg); }
 }
 
-@keyframes tremblote {
+@keyframes header-tremblote {
   0%, 100% { transform: rotate(-4deg) scale(1.1); }
   50%      { transform: rotate(4deg) scale(1.1); }
 }
 
 /* ---------- Mobile ---------- */
 @media (max-width: 600px) {
-  header {
+  .site-header {
     justify-content: center;
     text-align: center;
     padding: 20px 16px 30px;
   }
-  nav ul { gap: 30px 12px; }
+  .site-header nav ul { gap: 30px 12px; }
 }
 
 /* ---------- Pour ceux que tout ce bazar donne le tournis ---------- */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  .site-header, .site-header::before, .site-header::after,
+  .site-header *, .site-header *::before, .site-header *::after {
     animation: none !important;
     transition: none !important;
   }
+}
+
+#body-main-1,
+.body-main-1 {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff00cc, #3333ff, #00f5d4, #ffdd00);
+    background-size: 400% 400%;
+    animation: rainbow 8s ease infinite;
+    font-family: Arial, sans-serif;
+}
+
+@keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+main-1 {
+    display: block;
+    box-sizing: border-box;
+    width: calc(100% - 40px);
+    max-width: 700px;
+    margin: 48px auto;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    border: 5px solid #fff;
+    box-shadow: 0 0 30px #ff00cc, 0 0 60px #00f5d4;
+    padding: 30px clamp(16px, 4vw, 25px);
+    border-radius: 20px;
+    transform: rotate(-1deg);
+}
+
+main-1 h1 {
+    text-align: center;
+    color: #fff;
+    font-size: clamp(26px, 5vw, 40px);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 3px 3px 0 #ff00cc, 6px 6px 0 #00f5d4;
+    margin-bottom: 20px;
+}
+
+main-1 .top-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+main-1 .top-list li {
+    background: linear-gradient(90deg, #ffdd00, #ff7b00, #ff006e);
+    color: #111;
+    font-weight: 900;
+    font-size: 1.05rem;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 3px solid #fff;
+    box-shadow: 4px 4px 0 #000;
+    transform: rotate(var(--tilt, 0deg));
+}
+
+main-1 .top-list li:nth-child(odd) {
+    --tilt: -1deg;
+}
+
+main-1 .top-list li:nth-child(even) {
+    --tilt: 1deg;
+}
+
+main-1 .top-list li:nth-child(1) { background: linear-gradient(90deg, #ffd700, #ffb700); }
+main-1 .top-list li:nth-child(2) { background: linear-gradient(90deg, #ff9f1c, #ff6b35); }
+main-1 .top-list li:nth-child(3) { background: linear-gradient(90deg, #ff6b6b, #ef476f); }
+main-1 .top-list li:nth-child(4) { background: linear-gradient(90deg, #ff8fab, #f72585); }
+main-1 .top-list li:nth-child(5) { background: linear-gradient(90deg, #c77dff, #9d4edd); }
+main-1 .top-list li:nth-child(6) { background: linear-gradient(90deg, #90e0ef, #00b4d8); }
+main-1 .top-list li:nth-child(7) { background: linear-gradient(90deg, #7ae582, #38b000); }
+main-1 .top-list li:nth-child(8) { background: linear-gradient(90deg, #fef08a, #facc15); }
+main-1 .top-list li:nth-child(9) { background: linear-gradient(90deg, #fcd5ce, #ffafcc); }
+main-1 .top-list li:nth-child(10) { background: linear-gradient(90deg, #d8f3dc, #52b788); }
+
+/* MAIN-2 : tout le chaos reste dans ce bloc. */
+main-2 {
+	--main2-ink: #160d2b;
+	display: block;
+	position: relative;
+	isolation: isolate;
+	box-sizing: border-box;
+	max-width: 1100px;
+	margin: 32px auto;
+	padding: clamp(18px, 4vw, 48px);
+	border: 4px solid var(--main2-ink);
+	border-radius: 28px;
+	background:
+		radial-gradient(circle, #ffffff35 2px, transparent 2px) 0 0 / 22px 22px,
+		linear-gradient(135deg, #6725dd, #df32b1 55%, #ff7546);
+	color: var(--main2-ink);
+	font-family: "Arial Black", Arial, sans-serif;
+	line-height: 1.5;
+	box-shadow: 8px 8px 0 var(--main2-ink);
+}
+
+main-2::before {
+	content: "67 / BRAINROT ZONE";
+	display: table;
+	margin: 0 auto 24px;
+	padding: 8px 18px;
+	border: 3px solid var(--main2-ink);
+	border-radius: 8px;
+	background: #dfff00;
+	font-size: 13px;
+	font-weight: 900;
+	letter-spacing: 2px;
+	box-shadow: 4px 4px 0 var(--main2-ink);
+	transform: rotate(-3deg);
+}
+
+main-2 h1 {
+	max-width: 850px;
+	margin: 0 auto 36px;
+	color: #fff;
+	font-size: clamp(32px, 6vw, 66px);
+	font-weight: 900;
+	line-height: 1.05;
+	letter-spacing: -2px;
+	text-align: center;
+	text-transform: uppercase;
+	text-shadow: 3px 3px 0 var(--main2-ink), 6px 6px 0 #00f5ff;
+}
+
+main-2 ol {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 28px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	counter-reset: main2-rank 11;
+}
+
+main-2 li {
+	--main2-card: #fff18b;
+	--main2-tilt: -1deg;
+	position: relative;
+	min-width: 0;
+	padding: 60px 22px 22px;
+	border: 3px solid var(--main2-ink);
+	border-radius: 18px;
+	background: var(--main2-card);
+	font-size: 17px;
+	font-weight: 700;
+	box-shadow: 6px 6px 0 var(--main2-ink);
+	counter-increment: main2-rank -1;
+	transform: rotate(var(--main2-tilt));
+	transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+main-2 li:nth-child(even) { --main2-tilt: 1deg; }
+main-2 li:nth-child(4n + 2) { --main2-card: #93f5ff; }
+main-2 li:nth-child(4n + 3) { --main2-card: #ffc4ed; }
+main-2 li:nth-child(4n + 4) { --main2-card: #c4ff8a; }
+
+main-2 li::before {
+	content: "#" counter(main2-rank);
+	position: absolute;
+	top: 12px;
+	left: 18px;
+	padding: 2px 12px;
+	border: 2px solid var(--main2-ink);
+	border-radius: 7px;
+	background: #fff;
+	font-size: 23px;
+	font-weight: 900;
+	box-shadow: 3px 3px 0 var(--main2-ink);
+}
+
+main-2 li::after {
+	content: "AURA −67";
+	position: absolute;
+	top: 18px;
+	right: 14px;
+	padding: 3px 9px;
+	border-radius: 5px;
+	background: var(--main2-ink);
+	color: #fff;
+	font-size: 11px;
+	letter-spacing: 1px;
+	transform: rotate(4deg);
+}
+
+main-2 li a {
+	display: block;
+	width: fit-content;
+	max-width: 100%;
+	margin: 20px auto 0;
+	border: 3px solid var(--main2-ink);
+	border-radius: 12px;
+	background: var(--main2-ink);
+	box-shadow: 4px 4px 0 #fff;
+	overflow: hidden;
+}
+
+main-2 li a:focus-visible {
+	outline: 4px solid #5b21b6;
+	outline-offset: 6px;
+}
+
+main-2 li img {
+	display: block;
+	width: 220px;
+	max-width: 100%;
+	height: 180px;
+	object-fit: contain;
+}
+
+/* Le top 1 a droit au traitement boss final. */
+main-2 li:last-child {
+	grid-column: 1 / -1;
+	padding-top: 68px;
+	border-width: 4px;
+	background: linear-gradient(115deg, #dfff00, #67ffcd, #00e5ff);
+	font-size: 21px;
+	text-align: center;
+	transform: none;
+	box-shadow: 7px 7px 0 var(--main2-ink), 0 0 28px #dfff0070;
+}
+
+main-2 li:last-child::after {
+	content: "💀 AURA : GAME OVER";
+}
+
+main-2 li:last-child a {
+	transform: rotate(-2deg);
+}
+
+main-2::after {
+	content: "FIN DU CLASSEMENT / VA TOUCHER DE L’HERBE";
+	display: block;
+	margin-top: 36px;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 900;
+	letter-spacing: 2px;
+	text-align: center;
+}
+
+@media (hover: hover) {
+	main-2 li:hover {
+		z-index: 1;
+		transform: translateY(-6px) rotate(0deg);
+		box-shadow: 9px 12px 0 var(--main2-ink);
+	}
+
+	main-2 li:hover::before {
+		animation: main2-wiggle 600ms ease-in-out;
+	}
+}
+
+@keyframes main2-wiggle {
+	0%, 100% { transform: rotate(0deg); }
+	25%, 75% { transform: rotate(-12deg) scale(1.1); }
+	50% { transform: rotate(12deg) scale(1.1); }
+}
+
+@media (max-width: 640px) {
+	main-2 {
+		margin: 16px auto;
+		border-radius: 18px;
+		box-shadow: 4px 4px 0 var(--main2-ink);
+	}
+
+	main-2 ol { grid-template-columns: minmax(0, 1fr); }
+	main-2 h1 { letter-spacing: -1px; }
+	main-2 li { font-size: 16px; }
+	main-2 li:last-child {
+		padding-top: 100px;
+		font-size: 18px;
+	}
+	main-2 li:last-child::after {
+		top: 64px;
+		right: auto;
+		left: 18px;
+		transform: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	main-2 li { transition: none; }
+	main-2 li:hover::before { animation: none; }
+}
+/* 
+    * Using CSS variables for easy theming and maintenance.
+    * Mobile-first responsive design.
+    */
+:root {
+    --footer-bg: #222529;
+    --footer-text-color: #adb5bd;
+    --footer-heading-color: #ffffff;
+    --footer-link-color: #adb5bd;
+    --footer-link-hover-color: #ffffff;
+    --footer-border-color: #3b3f44;
+}
+
+/* Basic body styles for demonstration 
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    min-height: 100vh;
+    background-color: #f1f1f1;
+}
+
+.main-content {
+    padding: 2rem;
+}
+*/
+
+/* FOOTER STYLES START HERE */
+
+.footer-classic {
+    background-color: var(--footer-bg);
+    color: var(--footer-text-color);
+    padding: 3rem 1.5rem;
+}
+
+.footer-classic__container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* General link styling for the entire footer */
+.footer-classic a {
+    color: var(--footer-link-color);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.footer-classic a:hover {
+    color: var(--footer-link-hover-color);
+    text-decoration: underline;
+}
+
+/* Prevent underline on logo */
+.footer-classic__brand .logo:hover {
+    text-decoration: none;
+}
+
+.footer-classic__main {
+    display: grid;
+    /* Mobile-first: single column */
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--footer-border-color);
+}
+
+.footer-classic__brand .logo {
+    display: block;
+    width: 150px;
+    margin-bottom: 1rem;
+}
+
+.footer-classic__brand .logo path {
+    fill: var(--footer-heading-color);
+    transition: fill 0.2s ease-in-out;
+}
+
+.footer-classic__brand .logo:hover path {
+    fill: var(--footer-link-hover-color);
+}
+
+.footer-classic__brand p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.footer-classic__heading {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--footer-heading-color);
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.footer-classic__links ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-classic__links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-classic__bottom {
+    padding-top: 2rem;
+    font-size: 0.875rem;
+
+    /* Mobile-first: stack items and center them */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.footer-classic__copyright {
+    margin: 0;
+}
+
+.footer-classic__social ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Remove underline from social icons */
+.footer-classic__social a:hover {
+    text-decoration: none;
+}
+
+.footer-classic__social svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+
+/* Media query for tablets and larger */
+@media (min-width: 768px) {
+    .footer-classic__main {
+        /* Three-column layout for larger screens */
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 3rem;
+    }
+    
+    .footer-classic__bottom {
+        /* Arrange bottom items horizontally */
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
 }
